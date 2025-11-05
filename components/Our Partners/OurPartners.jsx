@@ -1,7 +1,5 @@
 'use client'
 
-import ScribbleIcon from '@/components/ui/ScribbleIcon'
-import { once } from 'events'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -120,7 +118,7 @@ export default function OurPartners() {
                   variants={wordVariants}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.2  }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   {word + ' '}
                 </motion.span>
@@ -135,13 +133,12 @@ export default function OurPartners() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}
-              viewport={{once: true, amount: 0.2  }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               شاهد كل العمل
             </motion.button>
           </div>
         </div>
-        
       </div>
       {/* {Part 2} */}
 

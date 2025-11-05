@@ -1,6 +1,5 @@
 'use client'
 
-import ScribbleIcon from '@/components/ui/ScribbleIcon'
 import {
   animate,
   motion,
@@ -203,8 +202,6 @@ export default function HearoSection({ from = 0, to = 1000, duration = 2 }) {
           <FaRegSun className="text-2xl" />
         </motion.div>
       </motion.div>
-
-      
     </div>
   )
 }
