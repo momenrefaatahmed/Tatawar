@@ -144,7 +144,7 @@ export default function OurPartners() {
       {/* {Part 2} */}
 
       <div className="w-100 py-20 bg-[#99B2DD]/20">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-3 md:px-0">
           <motion.div
             className="mb-20 text-center text-6xl"
             initial={{ opacity: 0 }}

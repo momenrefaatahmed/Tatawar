@@ -9,7 +9,7 @@ export default function About() {
     id='about'>
       <div className="flex md:flex-row flex-col items-center justify-between">
         <motion.div
-          className="flex flex-col  "
+          className="flex flex-col px-3 md:px-0 "
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
