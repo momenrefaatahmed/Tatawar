@@ -5,7 +5,8 @@ import Image from 'next/image'
 import { GiFlowerStar } from 'react-icons/gi'
 export default function About() {
   return (
-    <div className="container mx-auto py-20 overflow-hidden">
+    <div className="container mx-auto py-20 overflow-hidden"
+    id='about'>
       <div className="flex md:flex-row flex-col items-center justify-between">
         <motion.div
           className="flex flex-col  "

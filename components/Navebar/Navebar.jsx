@@ -3,30 +3,56 @@
 import ThemeToggle from '@/components/ThemeToggle/ThemeToggle'
 import { motion, spring } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
 const links = [
-  { name: 'بيت', href: '#' },
-  { name: 'خدمة', href: '#' },
-  { name: 'التسعير', href: '#' },
-  { name: 'الدعم', href: '#' },
+  { name: 'بيت', href: 'home' },
+  { name: 'خدمة', href: 'services' },
+  { name: 'التسعير', href: 'about' },
+  { name: 'الدعم', href: 'support' },
 ]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const handleNavigation = (sectionId) => {
+    setIsOpen(false)
+
+    if (pathname !== '/') {
+      router.push(`/#${sectionId}`)
+      return
+    }
+
+    if (sectionId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      const section = document.getElementById(sectionId)
+      if (section) {
+        const yOffset = -64
+        const y =
+          section.getBoundingClientRect().top + window.pageYOffset + yOffset
+        window.scrollTo({ top: y, behavior: 'smooth' })
+      }
+    }
+  }
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 w-full z-50 bg-[#F9DEC9/80] dark:bg-darkbg/80 backdrop-blur-md shadow-sm transition-colors duration-300 "
+      className="fixed top-0 left-0 w-full z-50 bg-[#F9DEC9]/80 dark:bg-darkbg/80 backdrop-blur-md shadow-sm transition-colors duration-300"
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, stiffness: 200, type: spring }}
     >
       <div className="container mx-auto flex items-center justify-between md:flex-row flex-row-reverse h-16 px-4">
         {/* Logo section */}
-        <div className="flex items-center gap-3">
+        <button
+          onClick={() => handleNavigation('home')}
+          className="flex items-center gap-3"
+        >
           <p className="font-semibold text-lg">تطور</p>
           <Image
             src="/image/logo/ايقونة.svg"
@@ -36,34 +62,32 @@ export default function Navbar() {
             className="dark:bg-lightbg dark:rounded-[4px]"
             priority
           />
-        </div>
+        </button>
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-stretch h-full gap-10">
           {links.map((link) => (
             <li key={link.name}>
-              <Link
-                href={link.href}
+              <button
+                onClick={() => handleNavigation(link.href)}
                 className="flex items-center justify-center h-full rounded-2xl hover:bg-darkbg
-            hover:text-darktext dark:hover:bg-lightbg dark:hover:text-lighttext px-4 transition"
+                hover:text-darktext dark:hover:bg-lightbg dark:hover:text-lighttext px-4 transition"
               >
                 {link.name}
-              </Link>
+              </button>
             </li>
           ))}
         </ul>
 
         {/* Right side section */}
-        <div className="flex items-center gap-3">
-          <div className="hidden md:flex items-center h-full">
-            <Link
-              href="#"
-              className="flex items-center justify-center h-full rounded-2xl hover:bg-darkbg hover:text-darktext dark:hover:bg-lightbg dark:hover:text-lighttext px-4 transition"
-            >
-              اتصال
-            </Link>
-            <ThemeToggle />
-          </div>
+        <div className="flex items-stretch h-full gap-5">
+          <button
+            onClick={() => handleNavigation('contact')}
+            className="hidden md:flex items-center h-full justify-center rounded-2xl hover:bg-darkbg hover:text-darktext dark:hover:bg-lightbg dark:hover:text-lighttext px-4 transition"
+          >
+            اتصال
+          </button>
+          <ThemeToggle />
 
           {/* Mobile menu button */}
           <button
@@ -83,22 +107,20 @@ export default function Navbar() {
           }`}
         >
           {links.map((link) => (
-            <Link
+            <button
               key={link.name}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
+              onClick={() => handleNavigation(link.href)}
               className="text-lg hover:text-primary transition"
             >
               {link.name}
-            </Link>
+            </button>
           ))}
-          <Link
-            href="#"
-            onClick={() => setIsOpen(false)}
+          <button
+            onClick={() => handleNavigation('contact')}
             className="text-lg hover:text-primary transition"
           >
             اتصال
-          </Link>
+          </button>
           <ThemeToggle />
         </div>
       </div>

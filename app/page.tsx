@@ -10,7 +10,7 @@ export default function Home() {
     <div className='overflow-hidden'>
       <HeroSection />
       <Stats/>
-      <Services/>
+      <Services />
       <About/>
       <OurPartners/>
       <Footer/>

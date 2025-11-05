@@ -51,7 +51,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-lightbg/50 dark:text-darkbg/50 dark:hover:text-darkbg hover:text-lightbg transition-all"
+                      className="text-lightbg/70 dark:text-darkbg/50 dark:hover:text-darkbg hover:text-lightbg transition-all"
                     >
                       {link.name}
                     </Link>
@@ -66,7 +66,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-lightbg/50 dark:text-darkbg/50 dark:hover:text-darkbg hover:text-lightbg transition-all"
+                      className="text-lightbg/70 dark:text-darkbg/50 dark:hover:text-darkbg hover:text-lightbg transition-all"
                     >
                       {link.name}
                     </Link>
@@ -85,19 +85,19 @@ export default function Footer() {
               height={300}
             />
             <div className="mt-10 flex-row flex gap-5">
-              <div className="bg-white  text-darkbg hover:text-lightbg hover:bg-[#685044] w-10 h-10 rounded-full flex items-center justify-center">
-                <Link href={'#'}>
-                  <FaLinkedinIn />
+              <div className="bg-white text-darkbg hover:text-lightbg hover:bg-[#685044] w-10 h-10 rounded-full flex items-center justify-center">
+                <Link href={'#'} aria-label='linkedin'>
+                  <FaLinkedinIn size={20}/>
                 </Link>
               </div>
               <div className="bg-white  text-darkbg hover:text-lightbg hover:bg-[#685044] w-10 h-10 rounded-full flex items-center justify-center">
-                <Link href={'#'}>
-                  <FaGithub />
+                <Link href={'#'} aria-label='github'>
+                  <FaGithub size={20} />
                 </Link>
               </div>
               <div className="bg-white  text-darkbg hover:text-lightbg hover:bg-[#685044] w-10 h-10 rounded-full flex items-center justify-center">
-                <Link href={'#'}>
-                  <FaFacebookF />
+                <Link href={'#'} aria-label='facebook'>
+                  <FaFacebookF size={20} />
                 </Link>
               </div>
             </div>

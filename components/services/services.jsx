@@ -8,9 +8,12 @@ import { TbUxCircle } from 'react-icons/tb'
 
 export default function Services() {
   return (
-    <div className="py-20 bg-white dark:bg-[#685044] overflow-hidden">
+    <div
+      className="py-20 bg-white dark:bg-[#685044] overflow-hidden"
+      id="services"
+    >
       <div className="container mx-auto md:px-0 px-3">
-        <div className='flex items-center justify-center'>
+        <div className="flex items-center justify-center">
           <motion.p
             className="text-5xl mb-10 md:text-start "
             initial={{ opacity: 0 }}

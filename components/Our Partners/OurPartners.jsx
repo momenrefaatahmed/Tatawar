@@ -27,7 +27,8 @@ const wordVariants = {
 
 export default function OurPartners() {
   return (
-    <div className="bg-white pt-20 dark:bg-[#685044] overflow-hidden">
+    <div className="bg-white pt-20 dark:bg-[#685044] overflow-hidden"
+    id='support'>
       {/* {Part 1} */}
       <div className="container mx-auto mb-16 relative ">
         <motion.div
